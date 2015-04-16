@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    function HashMap (){
+
+        //  var obj = [];
+
+        this.length = function (){
+
+            var count = 0;
+            for(var props in this){
+
+                count ++;
+
+            }
+
+            return count;
+        };
+
+        this.isEmpty = function (){
+
+            return (this.length === 0);
+        };
+
+        this.get = function (key) {
+
+            //   console.log(this);
+            for (var props in this) {
+                console.log(props);
+
+                if (props == key) {
+
+                    return this[key];
+                }
+            }
+        }
+
+        this.put = function (key, value){
+
+            for(var props in this){
+
+                if(!(props == key)) {
+                    // this.key = key;
+                    this[key] = value;
+
+                }
+                return this[key];
+            }
+        }
+
+    }
+
+
+    var x = new HashMap();
+    x.name ="Laks";
+    x["name"] = 20;
+    //   console.log(x.length());
+    //  console.log(x.isEmpty());
+    console.log(x.get("name"));
+    x.put("n",120);
+    console.log(x);
+
+
+</script>
+</body>
+</html>

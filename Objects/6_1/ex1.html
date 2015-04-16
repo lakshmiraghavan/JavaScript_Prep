@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+
+<script>
+    //object literals
+
+    // Reserved word can be used as property names without quoting
+
+    var obj = {
+        x:1
+    }
+
+    obj.for = 123;
+
+    //console.log(obj);
+
+    //object literal creates new objects if it appears within the body of a loop
+
+  // function check1(obj){
+     //  var obj={};
+       for (var i=0; i < 10;i++){
+           function check1(obj){
+               var obj={x:1};
+       //    console.log(obj); // PRINTS 10 TIMES
+           return obj;
+
+       } check1();
+   }
+</script>
+
+<script>
+    //Creating objects with new
+
+    var o = new Object();
+  //  console.log(o);
+    var x = {}
+ //   console.log(x); // -> same as o
+
+</script>
+
+<script>
+    //6.1.3
+    //Prototypes
+    //Every object has a prototype that it inherits from
+    //all objects created by object literals have the same prototype object
+
+    var obj3 = {x:1};
+    console.log(Object.getPrototypeOf(obj3));
+    console.log(Object.isPrototypeOf(obj3)); // false
+    console.log(Object.prototype.isPrototypeOf(obj3)); // true
+
+
+    var obj4 = Object.create(obj3);
+    console.log(Object.getPrototypeOf(obj4));
+    console.log(obj3.isPrototypeOf(obj4));        //true
+    console.log(Object.prototype.isPrototypeOf(obj4));  //true
+
+    //Object.prototype has no prototype
+    console.log(Object.getPrototypeOf(Object.prototype)); //null
+
+    var arr = new Array();
+    console.log(Object.getPrototypeOf(arr));
+    console.log(Array.prototype.isPrototypeOf(arr));
+
+    console.log(Object.getPrototypeOf(Array.prototype));
+    console.log(Object.prototype.isPrototypeOf(Array.prototype));  //true
+</script>
+<script>
+    //Object.create -> static function
+    var o2 = Object.create(null);
+    console.log(Object.getPrototypeOf(null));
+    console.log(Object.prototype.isPrototypeOf(obj4));
+    //console.log(o2); //no properties or methods
+  //  console.log(o2.toString()); //type error
+
+
+</script>
+
+</body>
+</html>

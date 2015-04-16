@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    // no object can have two properties with same name:
+   "use strict";
+    var obj = {
+        name:"Lakshmi",
+        name:"priya",
+        name:"newName",
+        id:10
+    }
+
+    //setting name property
+
+  //  obj.name = "nawName";
+    console.log(obj.name); // answer is newName. I thought it would give me an error
+
+    var obj2={
+        x:1,y:2,z:3
+    }
+
+    //All properties created are writable enumerable and configurable by default
+    console.log(Object.getOwnPropertyDescriptor(obj2,"x"));
+
+    //Objects prototype is a reference to another object from which it is inherited.
+
+    console.log(Object.getPrototypeOf(obj2));
+    var obj3 = Object.create(obj2);
+    console.log(Object.getPrototypeOf(obj3) == obj2); //return true
+    //Object class categorizes the type of object
+    console.log(Object.prototype.toString.call(obj3)); // Object
+
+     //Confused between class and prototype
+</script>
+
+<script>
+
+</script>
+
+
+</body>
+</html>
