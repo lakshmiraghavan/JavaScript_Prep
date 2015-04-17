@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<Script>
+    //Delete Properties
+    // operates on property. not the value
+    var o = {
+        x:1,y:2
+    }
+    console.log(delete o.z);
+    console.log(delete o["z"]);
+    console.log(delete o.x);
+    console.log(delete o.x);//return true
+    console.log(delete o["y"]);
+    console.log(o);
+    o.q = 6;
+    console.log(o);
+    console.log(delete ("deleting toString",o.toString));
+
+    /*
+    Delete does not remove properties with configurable attributes to false
+     */
+  "use strict";
+    var obj2 = {
+        m:1,
+        q:5
+    }
+
+    Object.defineProperty(obj2, "q", {configurable:false});
+    console.log("check config: ",Object.getOwnPropertyDescriptor(obj2,"q"));
+    console.log(delete(obj2.q)); // return false
+    // in strict mode this is supposed to cause a type error. I am not getting a type error
+
+    console.log(delete Object.prototype);
+
+</Script>
+<script>
+    //Accessing javascript properties
+    var obj1 = {
+        x:1,
+        y:2,
+        z:3
+    }
+    var txt = "";
+    for (var prop in obj1){
+
+        txt = txt + obj1[prop] + " ";
+    }
+   // console.log (txt);
+
+
+</script>
+
+</body>
+</html>

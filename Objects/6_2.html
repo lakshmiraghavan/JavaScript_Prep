@@ -15,8 +15,66 @@
 
 </script>
 <script>
+  /*  "use strict"; //when using strict mode, silent fail doesn't occur when you set properties with
+  with writable false. You get a type error.
+   */
     //inheritance
+    //query for inherited property
+    var obj1 = {
+        x:1,
+        y:2,
+        p:3
+    }
 
+    var obj2 = Object.create(obj1);
+    obj2.z=3;
+    console.log(obj2);
+    console.log(Object.getOwnPropertyNames(obj2));
+    obj2.x = 5;
+    console.log(obj2.x);
+    Object.defineProperty(obj1,"p",{writable:false});
+    console.log(obj1.p);
+    obj2.p = 10;
+    console.log("writable false:",obj2.p);
+    //inheritance occurs while querying properties. Not while setting them.
+    //properties set with setter methods behave differently.
+
+
+</script>
+<script>
+    //Property access errors
+    //Not an error to access a property that doesnot exist
+    var obj1 = {
+        x:1,
+        y:2,
+        p:3
+    }
+    console.log(obj1.m); //undefined
+
+ //   console.log(obj1.m.length); //Type error. m doesn't exist
+    // check to prevent type exceptions
+    var len = obj1 && ("m" in obj1) && obj1.m.length;
+ //   console.log(len); //should not get a type error . I am getting one
+
+
+</script>
+<script>
+    /*
+    setting property on object o fail when:
+     */
+    //trying to add new property when extensible is false. Unless you have a setter method
+    var obj1 = {
+        x:1,
+        y:2,
+        p:3
+    }
+    console.log(Object.isExtensible(obj1));
+    Object.preventExtensions(obj1);
+    console.log(Object.isExtensible(obj1));
+    obj1.m=4;
+    console.log(obj1);
+//if inherited property is read only: Example above
+// Object has an own property that is readonly.
 </script>
 
 </body>
