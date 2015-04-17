@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Implementing a stack in JavaScript</title>
+</head>
+<body>
+
+<script>
+    function Stack (){
+        this.stack = [];
+
+        this.top = 0;
+
+        this.push = function (obj){
+
+            this.stack[this.top] = obj;
+
+            console.log("push", this.stack[this.top]);
+            this.top++;
+
+        }
+
+        this.length = function(){
+            return this.top;
+        }
+
+        //push not working
+
+        this.pop = function (){
+
+
+            this.top--;
+
+            return this.stack[this.top];
+
+
+        }
+
+
+
+        this.peek = function(){
+            return this.stack[this.top];
+
+        }
+    }
+
+    var s = new Stack();
+    s.push("Laks");
+    s.push("Shloka");
+    s.push("Milan");
+    console.log(s);
+    console.log("pop",s.pop());
+    console.log(s);
+    console.log("stack length", s.length());
+    console.log(s.peek());
+
+
+</script>
+
+</body>
+</html>
