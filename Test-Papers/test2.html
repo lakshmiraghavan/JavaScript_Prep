@@ -8,13 +8,19 @@
           call takes list of comma separated arguments. apply takes an array.
 
           A2.   */
-               function f1 () {
+               function f1 (funcToCall) {
 
                 var args = Array.prototype.slice.call(arguments);
-                return Math.max.apply(null,args);
+                   args.splice(0, 1);
+                return funcToCall.apply(null,args);
                }
-              // console.log(f1(1,2,3,4))
 
+                function add(x,y)
+                {return x+y;}
+                console.log("hi");
+                console.log(f1(add,2,3));
+                // console.log(f1(1,2,3,4))
+/*
               function f2 (fn){
                   console.log(fn);
                return fn;
@@ -23,6 +29,15 @@
 
         var a = f2.bind(null,f1);
         console.log(a(1,2,3,4,5));
+*/
+        /*Q.3*/
+
+        for (var i=0; i<10;i++){
+
+            setTimeout((function (){
+                console.log(i);
+            })(),i*1000);
+        }
 
     </script>
 </head>
