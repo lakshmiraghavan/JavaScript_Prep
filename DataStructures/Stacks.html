@@ -22,15 +22,19 @@
         }
 
         this.length = function(){
-            return this.top;
+            return this.stack.length;
         }
 
         //push not working
 
         this.pop = function (){
 
+             console.log(this.stack);
+             console.log(this.top);
 
             this.top--;
+            console.log("splice",this.stack.splice(this.top,1));
+
 
             return this.stack[this.top];
 
@@ -51,7 +55,7 @@
     s.push("Milan");
     console.log(s);
     console.log("pop",s.pop());
-    console.log(s);
+    console.log("after pop",s);
     console.log("stack length", s.length());
     console.log(s.peek());
 

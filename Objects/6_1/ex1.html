@@ -72,11 +72,37 @@
 </script>
 <script>
     //Object.create -> static function
-    var o2 = Object.create(null);
-    console.log(Object.getPrototypeOf(null));
-    console.log(Object.prototype.isPrototypeOf(obj4));
+   // var o2 = Object.create();
+   // console.log(Object.getPrototypeOf(o2));
+   // console.log(Object.prototype.isPrototypeOf(o2));
     //console.log(o2); //no properties or methods
   //  console.log(o2.toString()); //type error
+
+</script>
+<script>
+    //mimicing the behaviour of Object.create()
+
+    function inherit (obj){
+        if (obj == null) throw TypeError();
+        if(typeof obj !== "object" && typeof obj !== "function") {
+            throw TypeError();
+        }
+            function dummy(){}
+            dummy.prototype = obj;
+            return new dummy();
+
+    }
+    obj2 = {x:1};
+
+    var inher = new inherit(obj2);
+    console.log(inher);
+    console.log(obj2.isPrototypeOf(inher));
+//changes in heir doesnot affect the original object
+        inher.x =2;
+    console.log(inher.x);
+    console.log(inher);
+    console.log(obj2.x);
+
 
 
 </script>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <script>
+        /* A1. Both call and apply are used to bind context to a function but the difference is second argument.
+          call takes list of comma separated arguments. apply takes an array.
+
+          A2.   */
+               function f1 () {
+
+                var args = Array.prototype.slice.call(arguments);
+                return Math.max.apply(null,args);
+               }
+              // console.log(f1(1,2,3,4))
+
+              function f2 (fn){
+                  console.log(fn);
+               return fn;
+
+              }
+
+        var a = f2.bind(null,f1);
+        console.log(a(1,2,3,4,5));
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>
