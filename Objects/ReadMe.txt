@@ -24,3 +24,5 @@ What is the prototype of null or empty object
     Can it be set by setter method?
     book says: There is an exception that allows configurable read only properties to be set??
 
+    Page 126
+

@@ -7,6 +7,48 @@
 <body>
 <script>
     //Testing Properties
+    // To check if an object has  has a property with a given name
+    var obj = {x:1,
+            y:2,
+            z:3,
+            p:7,
+            u:undefined,
+            l:null,
+            n:undefined
+    }
+    //in operator
+    console.log("x" in obj);
+    console.log("toString" in obj);
+    //hasOwnProperty()
+    console.log(obj.hasOwnProperty("x"));
+    console.log(obj.hasOwnProperty("toString"));
+    //property IsEnumerable refines hasOwnProperty. should be own property and should be enumerable
+    obj.propertyIsEnumerable("x"); //true
+    //console.log(obj.propertyIsEnumerable("toString")); //not own property
+    //console.log(Object.prototype.propertyIsEnumerable("toString")); // not enumerable
+
+    //using ! == undefined
+
+    //console.log(obj.x !== undefined);
+
+    // in operator can distinguish between properties that exist and those that are set to undefined
+
+    //console.log(obj.u !== undefined); // return false though property exists
+
+    //console.log("u" in obj); // returns true though u is  set to undefined
+
+    delete obj.u;
+   // console.log("u" in obj); //returns false
+
+    // difference between == and ===. To distinguish between the type (undefined and null)
+
+    if( obj.n != null){
+        console.log("test 1: ",obj.n *= 2);
+    }
+
+    if(obj.n){
+        console.log("test 2: ", obj.n *= 2);
+    }
 
 </script>
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Enumerable Properties</title>
+</head>
+<body>
+<script>
+    //built in methods are not enumerable
+    var obj ={
+         p: function (){}
+    }
+
+    var obj1 = Object.create(obj);
+     obj1.x=1;
+     obj1.y = 2;
+    obj1.z = 3;
+    for (var prop in obj1){
+        // to check for enumerable inherited methods
+        if(!obj1.hasOwnProperty(prop)) continue;
+        console.log(prop);
+    }
+    //or
+    for (var prop in obj1){
+        // to check for enumerable inherited methods
+        if(typeof obj1[prop] === "function") continue;
+        console.log(prop);
+    }
+
+</script>
+
+<script>
+    //Utility functions
+
+</script>
+
+</body>
+</html>
