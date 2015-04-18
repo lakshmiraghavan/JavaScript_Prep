@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    function Queue (){
+
+        this.queue = [];
+        this.enqueue =function (elem){
+            this.queue.push(elem);
+        }
+
+        this.dequeue = function(){
+            var r = this.queue.shift();
+
+           // console.log(this.queue);
+            return r;
+        }
+
+        this.isEmpty = function(){
+
+            return this.queue.length === 0;
+        }
+
+
+        this.toString = function (){
+            var txt = "";
+            for(var i=0;i < this.queue.length; i++){
+
+                txt = txt + this.queue[i] + " ";
+            }
+            return txt;
+        }
+
+        this.first = function(){
+            return this.queue[0];
+        }
+
+        this.last = function(){
+
+            return this.queue[this.queue.length -1];
+        }
+    }
+
+    var q = new Queue();
+    q.enqueue("L");
+    q.enqueue("A");
+    q.enqueue("K");
+    q.enqueue("S");
+    console.log(q.queue);
+    console.log(q.dequeue());
+    console.log(q.isEmpty());
+    console.log(q.toString());
+    console.log(q.first());
+    console.log(q.last());
+
+</script>
+
+</body>
+</html>

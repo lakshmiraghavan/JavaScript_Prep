@@ -32,7 +32,103 @@
 <script>
     //Utility functions
 
+    //Extend copy p to o
+
+    function extend (o,p){
+        for(var prop in p){
+            o[prop] = p[prop];
+        }
+        return o;
+    }
+
+      var obj = {
+          x:1,y:2,s:3
+      }
+
+    obj2 = {
+        z:8, s:10
+    }
+
+ //   extend(obj, obj2);
+  //  console.log(obj2);
+  //  console.log(obj);
+
+    //NOTICE THAT s gets over ridden
+
+       //Merge
+    function merge (o,p){
+        for(var prop in p){
+            if(o.hasOwnProperty(prop)) continue;
+            o[prop] = p[prop];
+        }
+        return o;
+    }
+
+    merge (obj,obj2);
+ //   console.log(obj);
+// no overriding here
+
+
+        /*
+    Return an array that holds the names of enumerable properties of o
+     */
+
+    var obj4 = {x:1,y:2,z:3,p:5}
+
+    Object.defineProperty(obj4,"p",{
+        enumerable:false
+    });
+
+    function keys(o){
+       var result = [];
+        for (var prop in o){
+            if(o.hasOwnProperty(prop)){
+
+                result.push(prop);
+
+            }
+        }
+        return result;
+    }
+
+     console.log(keys(obj4));
+
+    /*
+    for each property in p, delete the property with the same name from o.
+    return o.
+     */
+
+    function subtract(o,p){
+
+        for (var prop in p){
+            if (prop in o);
+            delete o[prop];
+        }
+        return o;
+
+    }
+    var p = {x:1,y:2,z:3}
+    var o = {x:1,y:2,p:6}
+
+    //console.log(subtract(o,p));
+
+    /*
+    Remove property from o if there is no property with same name in p. return o.
+     */
+
+    function restrict(o,p){
+        for (var prop in o){
+            if(!(prop in p)){
+                delete o[prop];
+            }
+        }
+        return o;
+    }
+
+    console.log(restrict(o,p));
+
 </script>
+
 
 </body>
 </html>

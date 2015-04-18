@@ -53,8 +53,8 @@
 
  //   console.log(obj1.m.length); //Type error. m doesn't exist
     // check to prevent type exceptions
-    var len = obj1 && ("m" in obj1) && obj1.m.length;
- //   console.log(len); //should not get a type error . I am getting one
+    var len = obj1 && ( "m" in obj1) && obj1.m.length;
+    console.log("type error: ",len); //should not get a type error . I am getting one
 
 
 </script>
