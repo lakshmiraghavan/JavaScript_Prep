@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    //Calculate Min
+function min (arr, toReturn){
+
+    var m = Math.min.apply(null,arr);
+
+    var idx = 0;
+
+    if(toReturn  == "index") {
+        idx = arr.indexOf(m);
+        return idx;
+    }
+
+
+    return m;
+
+    }
+
+   console.log (min ([1,2,3,4,5]), 'index');
+
+</script>
+
+<script>
+    //SortList
+
+    function sortList (sortBy, list) {
+        return list.sort(function(a, b){
+            return a[sortBy] < b[sortBy];
+        })
+    }
+
+
+    var obj = [
+        {a: 1, b: 3},
+        {a: 3, b: 2},
+        {a: 2, b: 40},
+        {a: 4, b: 12}
+
+    ];
+
+    console.log(sortList("b", obj));
+</script>
+
+<script>
+    //Villian name
+
+
+    function getVillainName(birthday){
+
+        var arr1 = {January: "The Evil", February:"The Vile", March:"The Cruel",
+            April:"The Trashy", May: "The Despicable", June: "The Embarrassing",
+            July: "The Disreputable", August: "The Atrocious",September: "The Twirling",
+            October: "The Orange",November: "The Terrifying",December: "The Awkward" };
+
+        var arr2 = {0:"Mustache", 1:"Pickle", 2: "Hood Ornament",3: "Raisin",
+            4: "Recycling Bin", 5: "Potato",6: "Tomato", 7: "House Cat", 8: "Teaspoon",
+            9: "Laundry Basket"};
+
+        var day = birthday.slice(-2);
+
+        //    console.log(day);
+        var monthlength = birthday.length - day.length;
+
+        var month = birthday.substr(0,monthlength);
+// console.log(month);
+
+        //  console.log(arr1[month] + " " + arr2[+day]);
+        //   console.log(arr2[1]);
+
+
+        return (arr1[month] + " " + arr2[+day]);
+
+    }
+
+    getVillainName("January 1");
+
+</script>
+
+<script>
+    //square matrix
+
+    function mainDiagonalPath(mat){
+
+        var diag = 1;
+        for (var i=0; i < mat.length; i++){
+
+           diag = diag * mat[i][i];
+
+        }
+        return diag ;
+    }
+
+    arr1 = [[1,0],[0,1]]
+    arr2 = [[1,2,3],[4,5,6],[7,8,9]]
+    console.log(mainDiagonalPath(arr2));
+</script>
+<script>
+    function cookingTime(eggs) {
+
+        if (eggs == 0){
+            return 0;
+        }
+
+        if(eggs <= 8) {
+            return 5;
+        }
+
+        if (eggs >8){
+
+            console.log(Math.ceil(eggs/8));
+
+            return ((Math.ceil(eggs/8))*5);
+        }
+    }
+
+    console.log(cookingTime(9));
+</script>
+
+</body>
+</html>

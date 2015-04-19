@@ -21,13 +21,15 @@
             this.email = _email
         }
         var customerC = new Customer(128, 'customerC@mailinator.com');
+
+
         console.log(Object.getPrototypeOf(customerA));
         console.log(Object.getPrototypeOf(customerB));
-        console.log(Object.getPrototypeOf(customerC));
+        console.log("check",Object.getPrototypeOf(customerC));
         console.log(customer.isPrototypeOf(customerA));
         console.log(Object.isPrototypeOf(customerB)); // why does this return false?
 // what is the prototype of the customerB then?
-        console.log(Customer.isPrototypeOf(customerC));
+        console.log(Customer.prototype.isPrototypeOf(customerC));
 // why does it return false? What is the prototype of customerB then?
 
 </script>

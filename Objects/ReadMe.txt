@@ -2,6 +2,10 @@ Prototype questions:
 
 What is class of an object. (Difference between class and prototype)
 
+Class: Categorizes the type of object.
+Prototype: Parent of an object.
+
+
 What is the prototype of null or empty object
 
 
@@ -26,3 +30,16 @@ What is the prototype of null or empty object
 
     Page 126
 
+-----------------------------------------------
+
+var o4 = {};
+o4.x = 5;
+var o5 = new Object(o4);
+
+console.log(o5.hasOwnProperty("x")); // Ayyooo!! It shows true
+
+According to this reference, the Object() function, when used as a constructor returns a wrapper around the primitive value. If the the value is already an object, it returns a reference to the object itself.
+
+Try o4 === o5
+
+There is no inheritance involved. It is a direct reference.

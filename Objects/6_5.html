@@ -129,6 +129,17 @@
 
 </script>
 
+<script>
+    //Object.keys, Object.getOwnPropertyNames()
+
+    var obj = {x:1,y:2,z:3,p:4,q:9};
+    Object.defineProperty(obj,"p",{enumerable:false});
+    console.log(Object.keys(obj));
+    console.log(Object.getOwnPropertyNames(obj));
+
+
+</script>
+
 
 </body>
 </html>
