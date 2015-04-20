@@ -15,9 +15,9 @@ var random = {
     get uint16(){return Math.floor(Math.random()*256);},
     get int16(){return Math.floor(Math.random()*65536)-32768;}
 };
-console.log(random.octet);
-console.log(random.uint16);
-console.log(random.int16);
+//console.log(random.octet);
+//console.log(random.uint16);
+//console.log(random.int16);
 
 //getter and setter 2D cartesian example
 
@@ -34,16 +34,45 @@ var p = {
 };
 //console.log(p.get());
 
-console.log(p.x);
-console.log(p.y);
-console.log(p.r);
+//console.log(p.x);
+//console.log(p.y);
+//console.log(p.r);
 p.x=10;
 p.y=10;
-console.log(p.x);
-console.log(p.y);
-console.log(p.r);
+//console.log(p.x);
+//console.log(p.y);
+//console.log(p.r);
 
+/*
+Serial Number example
+ */
 
+var serNum = {
+    n:0,
+   // get s() {
+   //          return this.n++;
+   // },
+
+    set s(n2){
+
+        if (n2 > this.n) {
+            this.n = n2;
+        }
+    }
+    };
+
+console.log(serNum.n);
+  console.log(serNum.s); //0
+console.log(serNum.s); //1
+console.log(serNum.s = 5); //5
+console.log(serNum.s); // 5
+console.log(serNum.s); //6
+console.log(serNum.n); //7
+console.log(serNum.n); //7
+console.log(serNum.s); //7
+console.log(serNum.s); //8
+console.log(serNum.n); //9
+//console.log(serNum.s);
 
 
 
