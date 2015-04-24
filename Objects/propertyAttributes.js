@@ -103,8 +103,11 @@ console.log(Object.prototype.hasOwnProperty("extend"));
 
 Object.defineProperty(Object.prototype, "extend", {
   enumerable:false, writable: true, configurable:true, value :function(obj){
+        console.log("which object",obj);
       var names = Object.getOwnPropertyNames(obj);
+        console.log("this", this);
         for (var i=0; i< names.length; i++){
+
             if(names[i] in this) continue;
             var desc = Object.getOwnPropertyDescriptor(obj, names[i]);
             Object.defineProperty(this, names[i],desc);
@@ -112,6 +115,12 @@ Object.defineProperty(Object.prototype, "extend", {
         }
     }
 })
+
+var obj3 = {x:1, z:5, b:3};
+var obj4 = {y:4, z:6};
+Object.prototype.extend(obj3);
+console.log(obj3);
+console.log(obj4);
 
 
 

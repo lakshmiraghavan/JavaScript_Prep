@@ -44,7 +44,7 @@ ex1.u = 5;
 ex1.h = 6;
 ex1.w = 7;
 Object.preventExtensions((ex1));
-
+// prevent Extensions: No new properties can be added
 console.log(ex1.h);
 console.log(ex1.u);
 console.log(ex1.x);

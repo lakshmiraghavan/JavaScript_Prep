@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*
+     function shadesOfGrey(n) {
+     var shades = [];
+
+     for (var i = 1; i <= Math.min(n, 254); i++) {
+     console.log(Math.min(n, 254));
+     var grey = ('0' + i.toString(16)).slice(-2);
+     console.log(i.toString(16));
+     console.log(grey);
+     shades.push('#' + grey + grey + grey);
+     }
+
+     return shades
+
+     }
+
+     console.log(shadesOfGrey(929874947));
+     */
+
+</script>
+
+<script>
+    //vowels
+
+    function getCount(str) {
+        var vowelsCount = 0;
+
+        for (var i = 0; i < str.length; i++) {
+
+
+
+        if (str[i] == 'a' || str[i] == 'e' || str[i] == 'i' || str[i] == 'o' || str[i] == 'u')
+
+            vowelsCount = vowelsCount + 1;
+                }
+            return vowelsCount;
+    }
+
+    console.log(getCount("wjhfowehfio"));
+</script>
+
+<script>
+    reverse = function(array) {
+
+       var rev = [];
+
+        for(var i = array.length -1; i >= 0; i --){
+
+            rev.push(array[i]);
+        }
+
+        return rev;
+
+    }
+
+console.log(reverse([1,2,3,4]));
+
+</script>
+
+<script>
+    /*
+    Check that for any x, all its successors are greater than or equal to x
+     */
+
+
+    var isMonotone = function(arr){
+
+        for(var i= 0; i < arr.length; i++){
+            for (var j=i+1; j <arr.length; j++){
+
+                if (arr[i] > arr [j]){
+                    return false;
+                }
+            }
+        }
+        return true; // << change this
+    }
+
+    console.log(isMonotone([3,2,1]));
+
+</script>
+
+<script>
+    var isMonotone = function(arr){
+        for(var i=1,len=arr.length;i<len;i++){
+            if(arr[i]<arr[i-1]) return false;
+        }
+        return true; // << change this
+    }
+    console.log(isMonotone([1,1,2,1]));
+
+</script>
+
+<script>
+    /*
+    the NATO one;
+     */
+
+    var nato = (function() {
+        var letters =  {
+            "A": "Alpha",  "B": "Bravo",   "C": "Charlie",
+            "D": "Delta",  "E": "Echo",    "F": "Foxtrot",
+            "G": "Golf",   "H": "Hotel",   "I": "India",
+            "J": "Juliett","K": "Kilo",    "L": "Lima",
+            "M": "Mike",   "N": "November","O": "Oscar",
+            "P": "Papa",   "Q": "Quebec",  "R": "Romeo",
+            "S": "Sierra", "T": "Tango",   "U": "Uniform",
+            "V": "Victor", "W": "Whiskey", "X": "X-ray",
+            "Y": "Yankee", "Z": "Zulu"
+        }
+
+        return function(word) {
+            var natoWord = "";
+            for (var i=0; i < word.length; i++){
+                    // console.log(letters[word[i]]);
+
+
+                natoWord = natoWord+ " " + letters[word[i]] ;
+
+
+            }
+
+            return natoWord ;
+
+        }
+    })()
+
+    console.log(nato("AAP"));
+
+</script>
+
+<script>
+    var nato = (function() {
+        var letters =  {
+            "A": "Alpha",  "B": "Bravo",   "C": "Charlie",
+            "D": "Delta",  "E": "Echo",    "F": "Foxtrot",
+            "G": "Golf",   "H": "Hotel",   "I": "India",
+            "J": "Juliett","K": "Kilo",    "L": "Lima",
+            "M": "Mike",   "N": "November","O": "Oscar",
+            "P": "Papa",   "Q": "Quebec",  "R": "Romeo",
+            "S": "Sierra", "T": "Tango",   "U": "Uniform",
+            "V": "Victor", "W": "Whiskey", "X": "X-ray",
+            "Y": "Yankee", "Z": "Zulu"
+        }
+
+        return function(word) {
+            var arr=[];
+          console.log(word.split(''));
+
+           console.log(map(word.split('')));
+        }
+    })()
+    console.log(nato("AAP"));
+
+</script>
+
+</body>
+</html>

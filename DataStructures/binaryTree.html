@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+    function Node(data, left, right){
+        this.data = data;
+        this.left = left;
+        this.right = right;
+        this.show = show;
+
+    }
+
+    function show(){
+        return this.data;
+    }
+
+    function BST(){
+        this.root = null;
+        //this.insert = insert;
+       // this.inOrder = inOrder;
+        this.getMin = getMin;
+        this.remove = remove;
+       // this.getMax = getMax;
+    }
+
+    BST.prototype.getMax =  function () {
+        var current = this.root;
+        while(current.right != null){
+            current = current.right;
+        }
+        return current.show();
+    };
+
+
+    BST.prototype.insert =  function(data){
+        var n = new Node(data, null, null);
+        if(this.root == null){
+            this.root = n;
+        } else {
+            //console.log('data ',data);
+            //console.log('root ',this.root);
+            //if(this.root === data) return;
+          var current = this.root;
+            var parent;
+            while(true) {
+                parent = current;
+                if(data != current.data){
+                if (data < current.data) {
+                    current = current.left;
+                    if (current == null) {
+                        parent.left = n;
+                        break;
+                    }
+                } else {
+                    current = current.right;
+                    if (current == null) {
+                        parent.right = n;
+                        break;
+                    }
+                }
+            }else break;
+            }
+        }
+    };
+
+    BST.prototype.inOrder = function inOrder(node){
+        if(!(node == null)){
+           // console.log('in..');
+            inOrder(node.left);
+            console.log(node.show() + ' ');
+            inOrder(node.right);
+        }
+    };
+
+    function preOrder(node){
+        if(!(node == null)){
+            console.log(node.show()+' ');
+            preOrder(node.left);
+            preOrder(node.right);
+        }
+    }
+
+    function postOrder(node){
+        if(!(node == null)){
+            postOrder(node.left);
+            postOrder(node.right);
+            console.log(node.show()+' ');
+        }
+    }
+
+    function getMin(){
+        var current = this.root;
+        while(current.left != null){
+            current = current.left;
+        }
+        return current.show();
+    }
+    var nums = new BST();
+    nums.insert(23);
+    nums.insert(45);
+    nums.insert(16);
+    nums.insert(37);
+    nums.insert(3);
+    nums.insert(99);
+    nums.insert(22);
+    //console.log(nums);
+    //console.log('inOrder traversal: ');
+
+    //inOrder(nums.root);
+   // preOrder(nums.root);
+    //postOrder(nums.root);
+
+    //console.log(nums.getMin());
+    //console.log(nums.getMax());
+    console.log("remove",nums.remove(23));
+    console.log("remove",nums.remove(37));
+    //console.log("remove",nums.remove(37));
+   // console.log("remove",nums.remove(3));
+    //console.log("remove",nums.remove(22));
+   // console.log("remove",nums.remove(99));
+    console.log("nums after remove", nums);
+
+    BST.prototype.find =function (data){
+        var current = this.root;
+        while(current.data != data){
+            if(data < current.data){
+                current = current.left;
+            } else {
+                current =current.right;
+            }
+            if(current == null) return null;
+        }
+        return current;
+    };
+    //console.log(nums.find(23));
+
+    function remove(data){
+        //console.log(this.root);
+        //console.log(data);
+        root = removeNode(this.root, data);
+    }
+
+    function removeNode(node, data){
+        if(node == null) {
+            //console.log('in 1t if');
+            return null;
+        }
+        if(data == node.data){
+            //console.log('in 2nd if');
+            //if no children
+            if(node.left == null && node.right == null) return null;
+            if(node.left == null) return node.right;
+            if(node.right == null) return node.left;
+            //if it has wo children
+
+            //console.log('2nd right...',node.right);
+            var tempNode = getSmallest(node.right);
+            node.data = tempNode.data;
+            node.right = removeNode(node.right, tempNode.data);
+
+        } else if(data < node.data){
+            //console.log('in 3rd if');
+            //console.log(node.left);
+            //console.log(data);
+                node.left = removeNode(node.left, data);
+                return node;
+        } else {
+           // console.log('in 4th if');
+            //console.log('right  ...',node.right);
+            //console.log('data...',data);
+            node.right = removeNode(node.right, data);
+            return node;
+        }
+
+    }
+
+    function getSmallest (node) {
+        if(node.left) {
+            return node.left;
+        }
+        else{
+            return node.right;
+        }
+
+    }
+
+    //nums.remove(45);
+   // console.log(nums);
+
+</script>
+
+</body>
+</html>

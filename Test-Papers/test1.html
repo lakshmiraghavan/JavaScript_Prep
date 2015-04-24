@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    var o = {};
+    Object.defineProperty(o,"name",{writable:false, value:'Deedee'});
+
+    o.name = "Dorian";
+    console.log(o.name);
+    var x = Object.create(o);
+    x.name = "Rodney";
+    console.log(x.name);
+    console.log(o.propertyIsEnumerable("toString"));
+
+
+
+    function check (o,prop){
+        if (prop in o){
+            if(typeof prop !== "undefined"){
+                return 1;
+            }
+            else if (typeof prop === "undefined" ){
+                return 2;
+            }
+
+        }
+        return 0;
+    }
+
+    var obj = {x:1, y:undefined};
+    //obj.y = undefined;
+    console.log(obj.y);
+    console.log(obj);
+
+console.log(check(obj, "y"));
+
+
+    console.log(Object.getOwnPropertyDescriptor(Object.prototype, "toString"));
+
+
+    function Person(name){
+        Object.defineProperty(this, "name",{
+            get:function (){
+                return name;
+            }
+
+        })
+    }
+    var p =new Person("Rodney");
+    p.name = "Rohit";
+    console.log(p.name);
+    // Rodney. As there is no get function
+
+    //Class of an object
+
+    Object.prototype.toString.call(o).slice(8, -1) ;
+
+    //Prevent extensions
+    //Object.preventExtensions(obj);
+
+    var o = Object.create(null);
+    console.log(o.constructor);
+
+// class of null attribute
+
+    console.log(Object.prototype.toString.call(null));
+
+    // date in local format
+
+    date = new Date();
+
+    console.log(date.toLocaleString());
+
+// mimic Object.create
+
+    function inherit(o){
+
+        if(typeof o == "object" || typeof o == "function") {
+
+            function f() {}
+                f.prototype = o;
+
+                return new f();
+
+
+        }
+        else
+        {
+            throw TypeError();
+        }
+    }
+
+    var objx = {x:1};
+    var objy = Object.create(objx);
+    var objz = inherit(objx);
+    console.log("inherit",objz);
+    console.log("create", objy);
+
+
+    String.prototype.valueOf = function(){
+        return this.length;
+    }
+
+    console.log("asdf".valueOf());
+    console.log(+"asdf");
+
+
+</script>
+
+</body>
+</html>
