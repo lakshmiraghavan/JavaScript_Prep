@@ -156,7 +156,7 @@
             if(node.left == null && node.right == null) return null;
             if(node.left == null) return node.right;
             if(node.right == null) return node.left;
-            //if it has wo children
+            //if it has two children
 
             //console.log('2nd right...',node.right);
             var tempNode = getSmallest(node.right);

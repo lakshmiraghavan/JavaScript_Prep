@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+<style>
+    *{
+    margin: 0;
+    padding:0;
+    }
+
+    #moveDiv{
+        position: absolute;
+        left: 50px;
+        top: 50px;
+        width: 100px;
+        height: 100px;
+        background: red;
+    }
+
+
+</style>
+
+
+</head>
+<body>
+
+<div id="moveDiv" style=""></div>
+
+
+<script>
+    var left = 0;
+    var top = 0;
+    var speed = 4;
+
+    window.addEventListener("keydown", updateKeys);
+
+
+
+    function updateKeys(e) {
+       // console.log("inside UpdateKeys");
+        if(e.keyCode == 37){
+            left -= speed;
+        }
+        else if(e.keyCode == 39){
+            left += speed;
+        }
+        else if(e.keyCode == 40){
+            top -= speed;
+        }
+
+        else if(e.keyCode == 38){
+            top += speed;
+        }
+
+
+
+
+        document.querySelector("#moveDiv").style.left = left + "px";
+        document.querySelector("#moveDiv").style.top = top + "px";
+
+    }
+
+    setInterval(updateKeys, 1);
+</script>
+
+</body>
+</html>

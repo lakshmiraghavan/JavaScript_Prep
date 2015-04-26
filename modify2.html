@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+
+<style>
+    body, html{
+        margin:0;
+        padding:0;
+    }
+
+    div.container{
+        height: 500px;
+        width: 500px;
+        background-color: #53eeac;
+        position: relative;
+        padding: 10px;
+        margin-top: 50px;
+        margin-left: 50px;
+    }
+
+    div.food{
+        height:20px;
+        width:20px;
+        background-color: #3231ff;
+        position: absolute;
+        box-sizing: border-box;
+    }
+
+    div.snake {
+        width:20px;
+        height:20px;
+    }
+
+    div.snake1{
+        width:20px;
+        height:20px;
+        background:black;
+        position:absolute;
+        border: 1px solid white;
+        box-sizing: border-box;
+        top:35%;
+    }
+
+    div.snake2{
+        width:20px;
+        height:20px;
+        background:black;
+        position:absolute;
+        border: 1px solid white;
+        box-sizing: border-box;
+        top:90%;
+        left:-5%;
+    }
+
+    div.snake3{
+        width:20px;
+        height:20px;
+        background:black;
+        position:absolute;
+        border: 1px solid white;
+        box-sizing: border-box;
+        top:90%;
+        left:-5%;
+    }
+</style>
+<body>
+<button id="start">Start Game</button>
+<div class ="container">
+<div class="snake"></div>
+
+</div>
+
+<script>
+    document.getElementById("start").addEventListener("click", function(e){
+            createFood();
+            createSnake();
+        var start = document.getElementById("start");
+        disableNextButton(start);
+        changeFood();
+    });
+
+
+
+        var intervalID;
+    function changeFood(){
+
+         intervalID = setInterval(changeFoodPostion, 5000);
+
+    }
+
+
+    function createFood(){
+
+        var div = document.querySelector("div.container");
+        var div1 = document.createElement("div");
+        div1.className = "food";
+
+        div.appendChild(div1);
+
+    }
+
+    function changeFoodPostion(){
+        var div1 = document.querySelector("div.food");
+        var posx = Math.floor(Math.random() * 500)-40 + "px";
+        var posy = Math.floor(Math.random() * 500)-40 + "px";
+        div1.style.left = posx;
+        div1.style.top = posy;
+    }
+
+    function disableNextButton(start) {
+        //console.log("in disable");
+
+        document.getElementById("start").disabled = 'true';
+    }
+
+    function randomSnakePosition(element) {
+        var div1 = document.querySelector("div.container");
+        console.log(div1.offsetHeight);
+        console.log(element.offsetHeight);
+        var x = div1.offsetHeight-element.clientHeight;
+        var y = div1.offsetWidth-element.clientWidth;
+        var randomX = Math.floor(Math.random()*x);
+        var randomY = Math.floor(Math.random()*y);
+        return [randomX,randomY];
+    }
+
+    function createSnake(){
+        var snake = document.querySelector('div.snake');
+        snake.setAttribute("style", "position:absolute;");
+        var xy = randomSnakePosition(snake);
+        snake.style.top = xy[0] + 'px';
+        snake.style.left = xy[1] + 'px';
+
+        var snake1 = document.createElement("div");
+        snake1.className = "snake1";
+        var snake2 = document.createElement("div");
+        snake2.className = "snake2";
+        var snake3 = document.createElement("div");
+        snake3.className = "snake3";
+
+        snake.appendChild(snake1);
+        snake1.appendChild(snake2);
+        snake2.appendChild(snake3);
+    }
+
+</script>
+
+</body>
+</html>

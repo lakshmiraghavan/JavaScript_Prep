@@ -1,0 +1,59 @@
+body, html{
+    margin:0;
+    padding:0;
+}
+
+div.container{
+    height: 500px;
+    width: 500px;
+    background-color: #53eeac;
+    position: relative;
+    padding: 10px;
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+div.food{
+    height:20px;
+    width:20px;
+    background-color: #3231ff;
+    position: absolute;
+    box-sizing: border-box;
+}
+
+div.snake {
+    width:20px;
+    height:20px;
+}
+
+div.snake1{
+    width:20px;
+    height:20px;
+    background:black;
+    position:absolute;
+    border: 1px solid white;
+    box-sizing: border-box;
+    top:35%;
+}
+
+div.snake2{
+    width:20px;
+    height:20px;
+    background:black;
+    position:absolute;
+    border: 1px solid white;
+    box-sizing: border-box;
+    top:90%;
+    left:-5%;
+}
+
+div.snake3{
+    width:20px;
+    height:20px;
+    background:black;
+    position:absolute;
+    border: 1px solid white;
+    box-sizing: border-box;
+    top:90%;
+    left:-5%;
+}
