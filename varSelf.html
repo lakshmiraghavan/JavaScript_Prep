@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+
+
+    function outer(name){
+
+        this.name = name;
+
+        console.log(this.name);
+
+        function inner(){
+
+            console.log(this.name);
+        }
+        inner();
+
+    }
+
+    outer("Lakshmi");
+
+</script>
+
+</body>
+</html>

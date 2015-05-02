@@ -1,0 +1,12 @@
+html,body {
+    height:100%
+}
+div.container {
+    float:left;
+    width:1000px
+
+}
+div.main {
+    width :1000px
+float:left
+}

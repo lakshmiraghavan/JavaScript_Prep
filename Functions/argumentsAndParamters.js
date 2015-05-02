@@ -63,5 +63,34 @@ function f(x){
     arguments[0] = null;
     console.log(x);
     console.log( arguments[0]);
+
 }
 f(6);
+
+
+//Callee and caller function.
+
+var factorial = function(n){
+    if(n<=1){
+        return 1;
+    }
+    else{
+        return n * arguments.callee(n-1);
+    }
+}
+console.log(factorial(5));
+
+
+function square(x){
+
+    return x*x;
+
+}
+function b(y){
+    return square(y);
+}
+console.log(b(3));
+
+console.log(square.caller === b); //this gives false
+
+

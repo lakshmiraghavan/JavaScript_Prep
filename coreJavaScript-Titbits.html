@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<script>
+    /*
+    valueOf : returns primitive value of the method specified
+
+     */
+
+    var o = new Object();
+    var o1 = o.valueOf();
+    console.log(o1);
+
+    var date = new Date();
+    console.log(date);
+    console.log(date.valueOf());
+     var a = "123".valueOf();
+    var b = "234".valueOf();
+
+    console.log("123".toString() + "123".toString());
+
+    function Constr(val) {
+       this.val = val;
+
+        this.get = function() {
+            return this.val;
+        }
+    }
+    var x = new Constr(10);
+    var y = new Constr(20);
+    console.log(x.get()+ y.get());
+
+
+    Constr.prototype.valueOf = function () {
+        return this.val;
+    };
+    var x = new Constr(30);
+    var y = new Constr(40);
+    console.log(x + y);
+
+    //prevent extensions
+
+    var o = {
+        name: 'Nina',
+        role: 'admin'
+    };
+    console.log(o.name);
+    Object.preventExtensions(o);
+  /*
+    Object.defineProperty(o, 'name', {
+   writable: false
+   });
+     */
+
+    o.name = 'Jui';
+    o.id = 's258df6a645f5asdf';
+   // console.log(o.name);
+    console.log(o.id);
+    // console.log('o.name', o.name);
+    print('o.name');
+    function print(expr) {
+        console.log(expr, eval(expr)); // todo: Why is eval 'evil'?
+    }
+    function enumerate(o) {
+        console.log('\nstarting enumeration loop: ');
+        for (var prop in o) {
+        }
+    }
+    console.log('Is the object extensible? ' + Object.isExtensible(o) ? 'Yes' : 'No');
+
+     //
+    var obj = {
+        val: 'chris',
+        valueOf: function () {
+            return this.val;
+        }
+    };
+    console.log(-obj + 2); // +
+    console.log(obj + obj);
+
+    //
+
+    var x = {
+        name: 'Rashmika' // data property
+    };
+    var y = {
+        _name: 'Rashmika', // data property
+        get name() {
+            return _name;
+        },
+        set name(val) {
+            if (/^[a-z]+$/.test(val)) _name = val;
+        }
+    };
+    function Person(id) {
+        var _id = id;
+        Object.defineProperty(this, 'id', {
+            get: function () {
+                return _id;
+            },
+            set: function (val) {
+               val = val.toString();
+                // check the value and set it
+                if(/^\d+$/.test(val))
+                    _id = val;
+            }
+        });
+    }
+    var chris = new Person(64);
+    console.log(chris.id);
+    chris.id = 32;
+    console.log(chris.id);
+    chris.id = 'invalid data';
+    console.log(chris.id);
+
+
+
+</script>
+
+</body>
+</html>

@@ -29,39 +29,49 @@
 
 
 <script>
-    var left = 0;
-    var top = 0;
-    var speed = 4;
+var counter = 0;
+    setInterval(function(){ moveDiv() }, 1);
+    counter++;
 
-    window.addEventListener("keydown", updateKeys);
+    function moveDiv() {
+        if(counter == 0) {
+            var left = 0;
+            var tops = 0;
+            var speed = 4;
+        }else {
 
-
-
-    function updateKeys(e) {
-       // console.log("inside UpdateKeys");
-        if(e.keyCode == 37){
-            left -= speed;
-        }
-        else if(e.keyCode == 39){
-            left += speed;
-        }
-        else if(e.keyCode == 40){
-            top -= speed;
         }
 
-        else if(e.keyCode == 38){
-            top += speed;
-        }
+        window.addEventListener("keydown", function (e) {
+            e.preventDefault();
+            // console.log("inside UpdateKeys");
+            if (e.keyCode == 37) {
+                console.log("in 37");
+                left -= speed;
+                console.log(left)
+            }
+            else if (e.keyCode == 39) {
+                console.log("in 39");
+                left += speed;
+            }
+            else if (e.keyCode == 40) {
+                console.log("in 40");
+                tops -= speed;
+                console.log(top);
+            }
+
+            else if (e.keyCode == 38) {
+                console.log("in 38");
+                tops += speed;
+            }
 
 
-
-
-        document.querySelector("#moveDiv").style.left = left + "px";
-        document.querySelector("#moveDiv").style.top = top + "px";
-
+            document.querySelector("#moveDiv").style.left = left + "px";
+            document.querySelector("#moveDiv").style.top = tops + "px";
+        });
     }
 
-    setInterval(updateKeys, 1);
+
 </script>
 
 </body>
